@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Humburger</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <p>Выберите размер гамбургера</p>
+    <button class="burger_card card-active" id="small_hamburger" onclick="chooseSize(this, Hamburger_SIZE_SMALL)">Гамбургер small<br>50$ 20cal</button>
+    <button class="burger_card" id="big_hamburger" onclick="chooseSize(this, Hamburger_SIZE_LARGE)">Гамбургер big<br>100$ 40cal</button>
+
+    <p>Выберите начинку (каждая начинка может быть выбрана только 1 раз)</p>
+    <button class="stuffing_card card-active" id="cheese" onclick="chooseStuffing(this, Hamburger_STUFFING_CHEESE)">Сыр<br>10$ 20cal</button>
+    <button class="stuffing_card" id="salad" onclick="chooseStuffing(this, Hamburger_STUFFING_SALAD)">Салат<br>20$ 5cal</button>
+    <button class="stuffing_card" id="potato" onclick="chooseStuffing(this, Hamburger_STUFFING_POTATO)">Картофель<br>15$ 10cal</button>
+
+    <p>Добавьте топпинг (по желанию: каждый топпинг может быть выбран только 1 раз)</p>
+    <button class="topping_card" id="spice" onclick="chooseTopping(this, Hamburger_TOPPING_SPICE)">Зелень<br>15$ 0cal</button>
+    <button class="topping_card" id="mayo" onclick="chooseTopping(this, Hamburger_TOPPING_MAYO)">Майонез<br>20$ 5cal</button>
+    <p></p>
+    <button onclick="showFinalInformation()">Рассчитать стоимость и калорийность</button>
+    </body>
+</html>

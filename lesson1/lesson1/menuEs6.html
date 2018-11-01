@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu ES6</title>
+    <script src="classes/Container.js"></script>
+    <script src="classes/Menu.js"></script>
+    <script src="classes/MenuItem.js"></script>
+    <script>
+        //Дожидаемся загрузки DOM
+        window.onload = function () {
+            var menu1 = document.getElementById('menu1');
+
+            //Пункты меню
+            var items = [
+                new MenuItem('/', 'Главная'),
+                new MenuItem('/about', 'О нас'),
+                new MenuItem('/contacts', 'Контакты'),
+                //new Menu('1', '2', []) //Игнорируется из-за проверки instanceof
+            ];
+
+            //Создание экземпляра Меню и вывод его на страницу
+            var menu = new Menu('my', 'my', items);
+            menu1.innerHTML = menu.render();
+            console.log(menu);
+
+            console.log(menu.getHtmlCode());
+
+            //TODO: Функция обработчик - вызов remove()
+        }
+    </script>
+</head>
+<body>
+<div id="menu1"></div>
+<button id="btn1">Удалить меню</button>
+</body>
+</html>

@@ -1,0 +1,39 @@
+button {
+    height: 150px;
+    width: 150px;
+    font-weight: bold;
+    border: 1px solid black
+}
+
+.card-active {
+    border: 3px solid red;
+}
+
+#big_hamburger {
+    background: url(./images/big.jpg) no-repeat;
+    opacity: 0.6;
+}
+#small_hamburger {
+    background: url(./images/small.jpg) no-repeat;
+    opacity: 0.6;
+}
+#cheese {
+    background: url(./images/cheese.jpg) no-repeat;
+    opacity: 0.6;
+}
+#spice {
+    background: url(./images/spice.jpg) no-repeat;
+    opacity: 0.6;
+}
+#salad {
+    background: url(./images/salad.jpg) no-repeat;
+    opacity: 0.6;
+}
+#mayo {
+    background: url(./images/mayo.jpg) no-repeat;
+    opacity: 0.6;
+}
+#potato {
+    background: url(./images/potato.jpg) no-repeat;
+    opacity: 0.6;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu ES5</title>
+    <script>
+        //Функция конструктор Меню
+        //Отрисовка самого контейнера и перебор пунктов в for
+        function Menu(myId, myClass, myItems) {
+            this.id = myId;
+            this.className = myClass;
+            this.items = myItems;
+        }
+
+        //Формирование структуры Меню
+        Menu.prototype.render = function (divMenu) {
+            // var result = '<ul class="' + this.className + '">';
+            let result = `<ul id="${this.id}" class="${this.className}">`;
+
+            for (var i = 0; i < this.items.length; i++) {
+                //Проверка this.items[i] на принадлежность к классу MenuItem
+                if (this.items[i] instanceof MenuItem) {
+                    result += this.items[i].renderItem();
+                }
+            }
+
+            result += '</ul>'; //result = result + '</ul>';
+            divMenu.innerHTML = result;
+
+            var btn = document.createElement('button');
+            btn.innerHTML = 'Удалить меню';
+
+
+            // var g = bind(f, "Context");
+
+            btn.onclick = () => {
+                this.remove.bind(this)();
+            };
+            divMenu.appendChild(btn)
+        };
+
+        Menu.prototype.remove = () => {
+            console.log('xxx', this);
+            document.getElementById(this.id).style.display = 'none';
+        };
+
+        //Функция конструктор для пункта меню
+        //Отрисовывает конкретный пункт
+        function MenuItem(href, title) {
+            this.href = href;
+            this.title = title;
+        }
+
+        //Вовращает html для вывода
+        MenuItem.prototype.renderItem = function () {
+            return `<li><a href="${this.href}">${this.title}</a></li>`;
+        };
+
+
+
+        //Дожидаемся загрузки DOM
+        window.onload = function () {
+
+
+            //Пункты меню
+            var items = [
+                new MenuItem('/', 'Главная'),
+                new MenuItem('/about', 'О нас'),
+                new MenuItem('/contacts', 'Контакты'),
+                //new Menu('1', '2', []) //Игнорируется из-за проверки instanceof
+            ];
+
+            //Создание экземпляра Меню и вывод его на страницу
+            var menu = new Menu('menu1', 'my', items);
+            var menuDiv = document.getElementById('menu1');
+            menu.render(menuDiv);
+        }
+
+
+    </script>
+</head>
+<body>
+<div id="menu1"></div>
+</body>
+</html>

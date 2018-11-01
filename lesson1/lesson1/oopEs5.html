@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES5</title>
+    <script>
+        //Функция конструктор
+        //Чертеж
+        function User(name, age) {
+            this.name = name;
+            this.age = age;
+
+            // this.showInfo = function () {
+            //     console.log('Базовая информация о пользователе');
+            //     console.log('Имя:', this.name);
+            //     console.log('Возраст:', this.age);
+            // };
+        }
+
+        //Выносим функцию в прототип
+        User.prototype.showInfo = function () {
+            console.log('Базовая информация о пользователе');
+            console.log('Имя:', this.name);
+            console.log('Возраст:', this.age);
+        };
+
+        //Сущность или объект
+        var user1 = new User('Anna', '26');
+        console.log(user1);
+        console.log(user1.name, user1.age);
+        user1.showInfo();
+
+        var user2 = new User('Olga', '27');
+        console.log(user2);
+        console.log(user2.name, user2.age);
+        user2.showInfo();
+
+        function Developer(name, age, salary, department) {
+            //this -> new Developer
+            User.call(this, name, age);
+            this.salary = salary;
+            this.department = department;
+        }
+
+        //Наследование
+        Developer.prototype = Object.create(User.prototype); //Наследование prototype родителя
+        Developer.prototype.constructor = Developer; //Возвращаем конструктор на место
+
+        var dev1 = new Developer('Alex', 28, 90000, 'Frontend');
+        console.log(dev1);
+
+        var array = [];
+        array.push('red');
+        console.log(array);
+        dev1.showInfo();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
